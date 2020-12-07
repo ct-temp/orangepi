@@ -13,8 +13,6 @@ import dht
 import time
 import datetime
 
-#dstmp = open("/root/ramdisk/dstmp.txt","w")
-#dhttmp = open("/root/ramdisk/dhttmp.txt","w")
 
 # initialize GPIO
 PIN2 = port.PA7
@@ -26,14 +24,11 @@ instance = dht.DHT(pin=PIN2)
 
 from PIL import ImageFont, ImageDraw, Image
 
-
-
 import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(('8.8.8.8', 1))  # connect() for UDP doesn't send packets
 ip_address = s.getsockname()[0]
-
 
 hostname = socket.gethostname()
 
@@ -66,9 +61,6 @@ font = ImageFont.load_default()
 font = ImageFont.truetype('/root/lib_oled96/FreeSerif.ttf', 14)
 # Ein paar Abkürzungen, um den Code zu entschlacken
 draw = oled.canvas
-
-# Display zum Start löschen
-
 
 while True:
     result = instance.read()
