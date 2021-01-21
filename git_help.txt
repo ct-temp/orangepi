@@ -7,5 +7,21 @@ git config --global user.name "jmeno"
 # Stazeni repository
 git clone https://ct-temp:heslo@github.com/ct-temp/orangepi.git
 
+
+# V adresari kde je repository
+# Clon do lokalniho repository 
+git fetch
+
 # Clon do lokalniho adresare
-git fetch https://ct-temp:heslo@github.com/ct-temp/orangepi.git
+git pull
+
+
+# Odeslani na server
+# Pridani do zmen
+git add "Jmeno noveho nebo zmeneneho souborui"
+
+# Propsani zmen do lokalni repository
+git commin -m "Co se menilo"
+
+# Zapsani na web
+git push
