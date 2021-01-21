@@ -1,5 +1,6 @@
 #!/bin/sh
 # Pridam komentar
+# Tady zacinaji promene
 START=`date +%s`
 DSTEMP=`cat /root/ramdisk/dstmp.txt` 
 DHTTMP=`cat /root/ramdisk/dhttmp.txt` 
