@@ -1,15 +1,14 @@
 # Tady bude help ke GITu
-# Identifikacni udaje
-
-git config --global user.email "email@email.email"
-git config --global user.name "jmeno"
 
 # Stazeni repository
 git clone https://ct-temp:heslo@github.com/ct-temp/orangepi.git
 
+# !!!!!! V adresari kde je repository !!!!!
+# Identifikacni udaje
+git config --global user.email "email@email.email"
+git config --global user.name "jmeno"
 
-# V adresari kde je repository
-# Clon do lokalniho repository 
+# Clon do lokalniho repositare
 git fetch
 
 # Clon do lokalniho adresare
@@ -17,11 +16,11 @@ git pull
 
 
 # Odeslani na server
-# Pridani do zmen
+# Pridani zmen do fronty
 git add "Jmeno noveho nebo zmeneneho souborui"
 
-# Propsani zmen do lokalni repository
+# Pridani zmen do lokalniho repositare
 git commin -m "Co se menilo"
 
-# Zapsani na web
+# Zapsani zmen na web
 git push
