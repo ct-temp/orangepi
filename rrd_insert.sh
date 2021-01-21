@@ -1,9 +1,6 @@
 #!/bin/sh
 # Tady zacinaji promene pro program
 #
-#
-#
-#
 START=`date +%s`
 DSTEMP=`cat /root/ramdisk/dstmp.txt` 
 DHTTMP=`cat /root/ramdisk/dhttmp.txt` 
