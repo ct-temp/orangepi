@@ -8,4 +8,4 @@ git config --global user.name "jmeno"
 git clone https://ct-temp:heslo@github.com/ct-temp/orangepi.git
 
 # Clon do lokalniho adresare
-git fetch https://ct-temp:d4j2j5mSGfJRTqYUzYj5@github.com/ct-temp/orangepi.git
+git fetch https://ct-temp:heslo@github.com/ct-temp/orangepi.git
