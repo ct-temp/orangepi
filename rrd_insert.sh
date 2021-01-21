@@ -1,6 +1,4 @@
 #!/bin/sh
-# Tady zacinaji promene pro program
-#
 START=`date +%s`
 DSTEMP=`cat /root/ramdisk/dstmp.txt` 
 DHTTMP=`cat /root/ramdisk/dhttmp.txt` 
@@ -24,6 +22,10 @@ TXTDATA=/var/www/html/data.txt
 RRD=/var/www/html/data.rrd
 RRD_BACKUP=/root/backup_data/data.rrd
 
+
+# Rosny bod
+/usr/local/bin/rosny_bod.sh
+ROSNYBOD=`cat /root/ramdisk/rosny_bod.txt`
 
 echo $DATEDATA" "$DSTEMP"       "$DHTTMP"       "$DHTHUM >> $TXTDATA
 
@@ -224,7 +226,7 @@ rrdtool graph /var/www/html/data_2mesice.png \
 "GPRINT:mtemp3:MAX:          $MAX\\: %.0lf" \
 "GPRINT:mtemp3:MIN:          $MIN\\: %.0lf\n"
 
-
+	
 
 echo "<html>" > $HTML
 echo "<head>" >> $HTML
@@ -238,6 +240,7 @@ echo "<tr><td align='right' bgcolor='black' width='700' ><font color='white'>Mer
 echo "<tr><td align='right'>Teplota DS :</td><td align='right'>$DSTEMP</td><td align='left'>&#8451</td></tr>" >> $HTML
 echo "<tr><td align='right'>Teplota DHT :</td><td align='right'>$DHTTMP</td><td align='left'>&#8451</td></tr>" >> $HTML
 echo "<tr><td align='right'>Vlhkost DHT :</td><td align='right'>$DHTHUM</td><td align='left'>%</td></tr>" >> $HTML
+echo "<tr><td align='right'>Rosny bod :</td><td align='right'>$ROSNYBOD</td><td align='left'>%</td></tr>" >> $HTML
 echo "<tr><td align='right'>Stazeni dat :</td><td align='right'><a href='data.txt'>download</a></td><td align='left'>&nbsp;</td></tr>" >> $HTML
 echo "<tr><td bgcolor='black'>&nbsp;</td><td bgcolor='black'>&nbsp;</td><td align='left' bgcolor='black'>&nbsp;</td></tr></font>" >> $HTML
 
