@@ -33,7 +33,8 @@ echo $DATEDATA" "$DSTEMP"       "$DHTTMP"       "$DHTHUM"	"$ROSNYBOD >> $TXTDATA
 if [ ! -f $RRD ]; then
         if [ -f $RDD_BACKUP ]; then
                 cp $RRD_BACKUP $RRD
-                rrdtool update $RRD "$START:$DSTEMP:$DHTTMP:$DHTHUM"
+                cp /root/backup_data/data.txt /var/www/html/
+		rrdtool update $RRD "$START:$DSTEMP:$DHTTMP:$DHTHUM"
         else
                 rrdtool create $RRD --step 300 DS:dstmp:GAUGE:900:U:U DS:dhttmp:GAUGE:900:U:U DS:dhthum:GAUGE:900:U:U RRA:AVERAGE:0.5:1:105120 RRA:MAX:0.5:1:105120 RRA:MIN:0.5:1:105120
         fi
