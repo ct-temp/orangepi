@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source config_rrd.sh
+source /usr/local/bin/config_rrd.sh
 
 # Rosny bod
 /usr/local/bin/rosny_bod.sh

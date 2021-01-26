@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source config_rrd.sh
+source /usr/local/bin/config_rrd.sh
 
 rrdtool graph /var/www/html/$1.png \
 --title "$TITLE $2 dnu" \
