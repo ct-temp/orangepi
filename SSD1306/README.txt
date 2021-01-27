@@ -1,7 +1,7 @@
 # Instalace
 
 
-## Varinata 1
+## Varianta 1
 cd ~
 git clone https://github.com/codelectron/ssd1306/
 cd ssd1306
