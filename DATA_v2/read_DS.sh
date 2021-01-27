@@ -4,7 +4,7 @@
 CIDLO=`ls -la /sys/bus/w1/devices/w1_bus_master1/ | grep 28 | cut -d " " -f 13`
 FILE=/var/www/html/dstmp.txt
 
-if [[ -f /sys/bus/w1/devices/$CIDLO/w1_slave ]];then
+if [[ -f "/sys/bus/w1/devices/$CIDLO/w1_slave" ]];then
 	DSTMP=`cat /sys/bus/w1/devices/$CIDLO/w1_slave | grep "t=" | cut -d "=" -f 2`
 	DSTMP=`echo "scale=1; $DSTMP / 1000" | bc`
 	echo $DSTMP > $FILE

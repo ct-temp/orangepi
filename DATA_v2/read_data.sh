@@ -1,19 +1,21 @@
 #!/bin/bash
 cd /usr/local/bin
-
 FOLDER=/var/www/html
-
-
 python3 read_DHT.py
+
+
 BME=`i2cdetect -y 0 | grep 76 | wc -l`
-DHT=`cat /var/www/html/dhttmp.txt`
+DHT=`cat $FOLDER/dhttmp.txt`
 DHT=`printf "%0.0f\n" $DHT`
+DS=`cat $FOLDER/ds.txt`
+
+
 
 
 if [ $BME -eq 1 ]
 then
-	python3 read_BME.py
-	echo "1" > $FOLDER/bme.txt 
+	echo "1" > $FOLDER/bme.txt
+       	python3 read_BME.py	
 else
 	echo "0" > $FOLDER/bme.txt 
 fi
@@ -25,6 +27,6 @@ then
 else
 	echo "0" > $FOLDER/dht.txt
 fi
-	
+
 /usr/local/bin/read_DS.sh
 /usr/local/bin/rosny_bod.sh

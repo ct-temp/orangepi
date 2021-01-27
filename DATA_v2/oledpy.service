@@ -1,0 +1,15 @@
+[Unit]
+Description=OledPy demo service
+After=network.target
+StartLimitIntervalSec=0
+
+
+[Service]
+Type=simple
+Restart=always
+ExecStartPre=/usr/local/bin/read_data.sh
+ExecStart=/usr/bin/python3 /usr/local/bin/oled.py 
+
+[Install]
+WantedBy=multi-user.target
+
