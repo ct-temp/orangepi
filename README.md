@@ -11,3 +11,7 @@ pip3 install virtualenv Pillow smbus2 psutil setuptools
 
 # fstab
 tmpfs /var/www/html    tmpfs    defaults,size=20m    0    0
+
+# Crontab
+*/5 *  * * * root /usr/local/bin/read_data.sh
+59 * * * * root /usr/local/bin/sync_data.sh
