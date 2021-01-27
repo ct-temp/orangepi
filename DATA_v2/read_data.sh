@@ -1,6 +1,7 @@
 #!/bin/bash
-cd /usr/local/bin
 FOLDER=/var/www/html
+
+cd /usr/local/bin
 python3 read_DHT.py
 
 
@@ -24,9 +25,15 @@ fi
 if [ $DHT != 0 ]
 then
 	echo "1" > $FOLDER/dht.txt
+	python3 read_DHT.py
 else
 	echo "0" > $FOLDER/dht.txt
+	python3 read_DHT.py
 fi
 
+/usr/local/bin/read_ip.sh
 /usr/local/bin/read_DS.sh
 /usr/local/bin/rosny_bod.sh
+
+
+/usr/local/bin/rrd_insert.sh
