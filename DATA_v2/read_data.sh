@@ -25,10 +25,8 @@ fi
 if [ $DHT != 0 ]
 then
 	echo "1" > $FOLDER/dht.txt
-	python3 read_DHT.py
 else
 	echo "0" > $FOLDER/dht.txt
-	python3 read_DHT.py
 fi
 
 /usr/local/bin/read_ip.sh

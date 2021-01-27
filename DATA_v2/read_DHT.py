@@ -14,13 +14,20 @@ gpio.init()
 instance = dht.DHT(pin=PIN2)
 
 result = instance.read()
-dhttmp  = open("/var/www/html/dhttmp.txt","w")
-teplota = str(result.temperature); 
-dhttmp.write(teplota)
-dhttmp.close()
+while True:
+    result = instance.read()
+    if result.is_valid():
+       dhttmp  = open("/var/www/html/dhttmp.txt","w")
+       teplota = str(result.temperature); 
+       dhttmp.write(teplota)
+       dhttmp.close()
 
-dhthum  = open("/var/www/html/dhthum.txt","w")
-humidity = str(result.humidity); 
-dhthum.write(humidity)
-dhthum.close()
+       dhthum  = open("/var/www/html/dhthum.txt","w")
+       humidity = str(result.humidity); 
+       dhthum.write(humidity)
+       dhthum.close()
 
+       print (teplota)
+       print (humidity)
+       break
+    time.sleep(2) 
