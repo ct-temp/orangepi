@@ -13,7 +13,6 @@ gpio.init()
 # read data using pin
 instance = dht.DHT(pin=PIN2)
 
-result = instance.read()
 while True:
     result = instance.read()
     if result.is_valid():
