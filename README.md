@@ -29,7 +29,7 @@ pool 1.ubuntu.pool.ntp.org iburst maxsources 1
 
 pool 2.ubuntu.pool.ntp.org iburst maxsources 2
 
-
+# Vložit
 server 172.30.29.187
 
 server 172.30.29.98
