@@ -23,3 +23,5 @@ echo "modprobe w1-therm" >> /etc/modules-load.d/modules.conf
 echo "modprobe w1-gpio" >> /etc/modules-load.d/modules.conf
 echo "param_w1_pin=PA14" >> /boot/armbianEnv.txt
 echo "param_w1_pin_int_pullup=1" >> /boot/armbianEnv.txt
+awk '{if ($1 ~ /^overlays=/) print $0, " w1-gpio"; else print $0}' /boot/armbianEnv.txt
+reboot
