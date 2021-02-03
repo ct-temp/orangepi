@@ -17,3 +17,9 @@ cp DATA_v2/* /usr/local/bin/
 
 echo "Nastavuji oprávnění"
 chmod 755 /usr/local/bin/*.sh
+
+echo "Pripravuj system"
+echo "modprobe w1-therm" >> /etc/modules-load.d/modules.conf
+echo "modprobe w1-gpio" >> /etc/modules-load.d/modules.conf
+echo "param_w1_pin=PA14" >> /boot/armbianEnv.txt
+echo "param_w1_pin_int_pullup=1" >> /boot/armbianEnv.txt
