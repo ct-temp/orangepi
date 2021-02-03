@@ -29,4 +29,3 @@ tmpfs /var/www/html    tmpfs    defaults,size=20m    0    0
 ###### vložit
 - server 172.30.29.187
 - server 172.30.29.98
-
