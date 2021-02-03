@@ -20,10 +20,11 @@ tmpfs /var/www/html    tmpfs    defaults,size=20m    0    0
 # Čas
 # v /etc/chrony/chrony.conf
 
-#pool ntp.ubuntu.com        iburst maxsources 4
-#pool 0.ubuntu.pool.ntp.org iburst maxsources 1
-#pool 1.ubuntu.pool.ntp.org iburst maxsources 1
-#pool 2.ubuntu.pool.ntp.org iburst maxsources 2
+# zaremovat
+pool ntp.ubuntu.com        iburst maxsources 4
+pool 0.ubuntu.pool.ntp.org iburst maxsources 1
+pool 1.ubuntu.pool.ntp.org iburst maxsources 1
+pool 2.ubuntu.pool.ntp.org iburst maxsources 2
 
 server 172.30.29.187
 server 172.30.29.98
