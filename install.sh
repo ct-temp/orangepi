@@ -15,9 +15,12 @@ pip3 install virtualenv Pillow smbus2 psutil setuptools
 echo "Kopíruji data"
 cp DATA_v2/*.py /usr/local/bin/
 cp DATA_v2/*.sh /usr/local/bin/
+cp RRD_v2/* /usr/local/bin/
 
 echo "Nastavuji oprávnění"
 chmod 755 /usr/local/bin/*.sh
+
+echo "tmpfs /var/www/html tmpfs defaults,size=20m 0 0" >> /etc/fstab
 
 echo "Systemd"
 cp DATA_v2/oledpy.service /etc/systemd/system/
