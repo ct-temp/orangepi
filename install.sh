@@ -13,13 +13,17 @@ cd orangepi_zero_gpio
 python3 setup.py install
 
 echo "Kopíruji data"
-cp DATA_v2/* /usr/local/bin/
+cp DATA_v2/*.py /usr/local/bin/
+cp DATA_v2/*.sh /usr/local/bin/
 
 echo "Nastavuji oprávnění"
 chmod 755 /usr/local/bin/*.sh
 
 echo "Systemd"
-cp DATA_v2/ /etc/systemd/system/
+cp DATA_v2/oledpy.service /etc/systemd/system/
+systemctl enable oledpy.service
+systemctl start oledpy.service
+
 
 echo "Pripravuj system"
 echo "modprobe w1-therm" >> /etc/modules-load.d/modules.conf
