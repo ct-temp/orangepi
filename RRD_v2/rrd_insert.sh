@@ -2,7 +2,7 @@
 
 source /usr/local/bin/config_rrd.sh
 
-echo $DATEDATA" "$DSTEMP"       "$DHTTMP"       "$DHTHUM"	"$ROSNYBOD >> $TXTDATA
+echo $DATEDATA"|"$DSTEMP"|"$DHTTMP"|"$DHTHUM"|"$ROSNYBOD >> $TXTDATA
 
 
 if [ ! -f "$RRD" ]; then
@@ -47,7 +47,18 @@ echo "<tr><td align='right' bgcolor='black' width='700' ><font color='white'>Mer
 echo "<tr><td align='right'>Teplota DS :</td><td align='right'>$DSTEMP</td><td align='left'>&#8451</td></tr>" >> $HTML
 echo "<tr><td align='right'>Teplota DHT :</td><td align='right'>$DHTTMP</td><td align='left'>&#8451</td></tr>" >> $HTML
 echo "<tr><td align='right'>Vlhkost DHT :</td><td align='right'>$DHTHUM</td><td align='left'>%</td></tr>" >> $HTML
-echo "<tr><td align='right'>Rosny bod :</td><td align='right'>$ROSNYBOD</td><td align='left'>&#8451</td></tr>" >> $HTML
+echo "<tr><td align='right'>Rosny bod DTH :</td><td align='right'>$ROSNYBOD</td><td align='left'>&#8451</td></tr>" >> $HTML
+
+BME=`cat $FOLDER/bme.txt`
+if [ $BME -eq 1 ]
+then
+        echo $DATEDATA"|"$BMETMP"|"$BMEHUM"|"$BMEPRESS"|"$BMERB >> $TXTDATABME
+	echo "<tr><td align='right'>Teplota BME280 :</td><td align='right'>$BMETMP</td><td align='left'>&#8451</td></tr>" >> $HTML
+	echo "<tr><td align='right'>Vlhkost BME280 :</td><td align='right'>$BMEHUM</td><td align='left'>%</td></tr>" >> $HTML
+	echo "<tr><td align='right'>Rosny bod BME280 :</td><td align='right'>$BMERB</td><td align='left'>&#8451</td></tr>" >> $HTML
+	echo "<tr><td align='right'>Tlak BME280 :</td><td align='right'>$BMEPRESS</td><td align='left'>HPa</td></tr>" >> $HTML
+fi
+
 echo "<tr><td align='right'>Stazeni dat :</td><td align='right'><a href='data.txt'>download</a></td><td align='left'>&nbsp;</td></tr>" >> $HTML
 echo "<tr><td bgcolor='black'>&nbsp;</td><td bgcolor='black'>&nbsp;</td><td align='left' bgcolor='black'>&nbsp;</td></tr></font>" >> $HTML
 
@@ -67,3 +78,4 @@ echo "<br>" >> $HTML
 echo "<br>" >> $HTML
 echo "<img src='data_60_den.png'>" >> $HTML
 echo "</html>" >> $HTML
+
