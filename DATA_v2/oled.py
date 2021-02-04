@@ -80,7 +80,7 @@ while True:
             draw.text((0, 48), "RB :", font=font, fill=1)
             draw.text((30, 48), dhtrb, font=font, fill=1)
             oled.display()
-            time.sleep(2)
+            time.sleep(sleeping)
         
         if bme == 1:
             oled.cls()
