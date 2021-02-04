@@ -1,13 +1,15 @@
 #!/bin/bash
 
 echo "Instaluji balíčky do systému"
-apt-get -y install python3-distutils python3-dev i2c-tools libi2c-dev libjpeg-dev libjpeg-tools libfreetype-dev python3-pip python3-smbus rrdtool lighttpd chrony
+apt-get -y install python3-distutils python3-dev i2c-tools libi2c-dev libjpeg-dev libjpeg-tools libfreetype-dev python3-pip python3-smbus rrdtool lighttpd chrony python3-numpy
 
 echo "Instaluji GPIo pro Zero"
 cd ~
 git clone https://github.com/nvl1109/orangepi_zero_gpio.git
 cd orangepi_zero_gpio
 python3 setup.py install
+
+cd ~/orangepi 
 
 echo "Instaluji balíčky do Pythonu"
 pip3 install virtualenv Pillow smbus2 psutil setuptools
@@ -55,9 +57,16 @@ echo "Pripravuj system"
 echo "g_serial" > /etc/modules
 echo "w1-therm" >> /etc/modules
 echo "w1-gpio" >>  /etc/modules
-echo "param_w1_pin=PA14" >> /boot/armbianEnv.txt
-echo "param_w1_pin_int_pullup=1" >> /boot/armbianEnv.txt
-awk '{if ($1 ~ /^overlays=/) print $0, " w1-gpio i2c0"; else print $0}' /boot/armbianEnv.txt
 
 
-reboot
+echo "Pripravuji boot"
+BW1=`cat /boot/armbianEnv.txt | grep param_w1_pin | wc -l`
+if [ $BW1 -eq 0 ]; then
+	echo "param_w1_pin=PA14" >> /boot/armbianEnv.txt
+	echo "param_w1_pin_int_pullup=1" >> /boot/armbianEnv.txt
+	awk '{if ($1 ~ /^overlays=/) print $0, "w1-gpio i2c0"; else print $0}' /boot/armbianEnv.txt > /tmp/a.txt | mv /tmp/a.txt /boot/armbianEnv.txt
+else
+	echo "Boot byl pripraven";
+fi
+
+#reboot
