@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-CIDLO=`ls -la /sys/bus/w1/devices/w1_bus_master1/ | grep 28 | cut -d " " -f 13`
+CIDLO=`ls -la /sys/bus/w1/devices/w1_bus_master1/ | grep 28 | cut -d " " -f 14`
 FILE=/var/www/html/dstmp.txt
 
 if [[ -f "/sys/bus/w1/devices/$CIDLO/w1_slave" ]];then
