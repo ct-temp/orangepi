@@ -15,8 +15,7 @@ pip3 install virtualenv Pillow smbus2 psutil setuptools
 echo "Kopíruji data"
 cp DATA_v2/*.py /usr/local/bin/
 cp DATA_v2/*.sh /usr/local/bin/
-cp RRD_v2/* (crontab -l 2>/dev/null; echo "*/5 * * * * root /usr/local/bin/read_data.sh") | crontab -
-(crontab -l 2>/dev/null; echo "59 * * * * root /usr/local/bin/sync_data.sh") | crontab -
+cp RRD_v2/* /usr/local/bin/
 cp sync_data.sh /usr/local/bin/
 
 echo "Nastavuji oprávnění"
