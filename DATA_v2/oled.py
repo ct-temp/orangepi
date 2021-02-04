@@ -7,7 +7,7 @@ from smbus import SMBus
 import time
 from pyA20.gpio import gpio
 from pyA20.gpio import port
-
+sleeping = 10 
 
 from PIL import ImageFont, ImageDraw, Image
 font = ImageFont.load_default()
@@ -47,16 +47,20 @@ while True:
         draw.text((30, 16), ipwlan, font=font, fill=1)
         draw.text((0, 32), "ETH :", font=font, fill=1)
         draw.text((30, 32), ipeth, font=font, fill=1)
-        
-        if ds == 1:
-            dstmpd = open("/var/www/html/dstmp.txt")
-            dstmp = dstmpd.readline() 
-            draw.text((0, 48), "TMP DS :", font=font, fill=1)
-            draw.text((50, 48), dstmp, font=font, fill=1)
-        
 
         oled.display()
-        time.sleep(2)
+        time.sleep(sleeping)
+
+
+        if ds == 1:
+            oled.cls()
+            oled.display()
+            dstmpd = open("/var/www/html/dstmp.txt")
+            dstmp = dstmpd.readline() 
+            draw.text((0, 0), "TMP DS :", font=font, fill=1)
+            draw.text((50, 0), dstmp, font=font, fill=1)
+            oled.display()
+            time.sleep(sleeping)
 
         if dht == 1:     
             oled.cls()
@@ -98,4 +102,4 @@ while True:
             draw.text((0, 48), "RB :", font=font, fill=1)
             draw.text((30, 48), bmerb, font=font, fill=1)
             oled.display()
-            time.sleep(2)
+            time.sleep(sleeping)

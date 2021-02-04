@@ -26,7 +26,7 @@ while True:
        dhthum.write(humidity)
        dhthum.close()
 
-       print (teplota)
-       print (humidity)
+#       print (teplota)
+#       print (humidity)
        break
     time.sleep(2) 
