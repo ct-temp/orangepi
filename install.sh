@@ -69,4 +69,4 @@ else
 	echo "Boot byl pripraven";
 fi
 
-#reboot
+reboot
