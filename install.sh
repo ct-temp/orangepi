@@ -20,7 +20,13 @@ cp RRD_v2/* /usr/local/bin/
 echo "Nastavuji oprávnění"
 chmod 755 /usr/local/bin/*.sh
 
+echo "Vytvarim tmpfs"
 echo "tmpfs /var/www/html tmpfs defaults,size=20m 0 0" >> /etc/fstab
+
+echo "nastavuji CRON"
+(crontab -l 2>/dev/null; echo "*/5 * * * * root /usr/local/bin/read_data.sh") | crontab -
+(crontab -l 2>/dev/null; echo "59 * * * * root /usr/local/bin/sync_data.sh") | crontab -
+
 
 echo "Systemd"
 cp DATA_v2/oledpy.service /etc/systemd/system/
