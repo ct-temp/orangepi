@@ -18,6 +18,9 @@ cp DATA_v2/* /usr/local/bin/
 echo "Nastavuji oprávnění"
 chmod 755 /usr/local/bin/*.sh
 
+echo "Systemd"
+cp DATA_v2/ /etc/systemd/system/
+
 echo "Pripravuj system"
 echo "modprobe w1-therm" >> /etc/modules-load.d/modules.conf
 echo "modprobe w1-gpio" >> /etc/modules-load.d/modules.conf
