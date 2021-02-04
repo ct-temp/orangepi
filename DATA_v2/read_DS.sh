@@ -11,4 +11,5 @@ if [[ -f "/sys/bus/w1/devices/$CIDLO/w1_slave" ]];then
 	echo "1" > /var/www/html/ds.txt
 else
 	echo "0" > /var/www/html/ds.txt 
+	echo "0" > /var/www/html/dstmp.txt
 fi

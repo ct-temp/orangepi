@@ -35,13 +35,13 @@ echo "Settings CRON"
 CSYNC=`crontab -l | grep sync_data.sh| wc -l`
 CDATA=`crontab -l | grep read_data.sh| wc -l`
 if [ $CSYNC -eq 0 ]; then
-	(crontab -l 2>/dev/null; echo "59 * * * * root /usr/local/bin/sync_data.sh") | crontab -
+	(crontab -l 2>/dev/null; echo "59 * * * * /usr/local/bin/sync_data.sh") | crontab -
 else
 	echo "Cron exist";
 fi
 
 if [ $CDATA -eq 0 ]; then
-	(crontab -l 2>/dev/null; echo "*/5 * * * * root /usr/local/bin/read_data.sh") | crontab -
+	(crontab -l 2>/dev/null; echo "*/5 * * * * /usr/local/bin/read_data.sh") | crontab -
 else
 	echo "Cron exist";
 fi
