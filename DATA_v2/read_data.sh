@@ -19,6 +19,9 @@ then
 	echo "1" > $FOLDER/bme.txt 
 else
 	echo "0" > $FOLDER/bme.txt 
+	echo "0" > $FOLDER/bmetmp.txt 
+	echo "0" > $FOLDER/bmehum.txt 
+	echo "0" > $FOLDER/bmepress.txt 
 fi
 
 
@@ -27,6 +30,8 @@ then
 	echo "1" > $FOLDER/dht.txt
 else
 	echo "0" > $FOLDER/dht.txt
+	echo "0" > $FOLDER/dhttmp.txt
+	echo "0" > $FOLDER/dhthum.txt
 fi
 
 /usr/local/bin/read_ip.sh
