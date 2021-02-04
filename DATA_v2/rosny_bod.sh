@@ -2,7 +2,7 @@
 FOLDER=/var/www/html/
 
 
-BME=`i2cdetect -y 0 | grep 76 | wc -l`
+BME=`/usr/sbin/i2cdetect -y 0 | grep 76 | wc -l`
 DHT=`cat /var/www/html/dht.txt`
 
 if [ $BME -eq 1 ]
