@@ -7,7 +7,7 @@ import time
 import datetime
 
 # initialize GPIO
-PIN2 = port.PA6
+PIN2 = port.PA7
 gpio.init()
 
 # read data using pin
